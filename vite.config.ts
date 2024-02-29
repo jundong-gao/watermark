@@ -11,10 +11,17 @@ export default defineConfig({
     }
   },
   build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
     lib: {
-      entry: path.resolve(__dirname, 'src/plugins/index.ts'),
-      name: '高天',
-      fileName: (format) => `gaotian.${format}.js`
+      entry: path.resolve(__dirname, 'src/entry.ts'),
+      name: 'gao-watermark',
+      fileName: (format) => `gao-watermark.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
@@ -22,7 +29,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         }
-      }
+      },
     }
   }
 })
