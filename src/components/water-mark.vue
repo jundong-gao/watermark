@@ -6,36 +6,25 @@
 
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted,  } from 'vue'
 import { useCreateMarkBg } from '../hooks/useCreateMarkbg'
+import { IMarkConfig } from '../types/types'
 
 
 
-const props = defineProps({
-  fontSize: {
-    type: Number,
-    default: 14
-  },
-  color: {
-    type: String,
-    default: 'rgba(0, 0, 0, .2)'
-  },
-  text: {
-    type: String,
-    default: 'WaterMark'
-  },
-  gap: {
-    type: [Number, Array<number>],
-    default: 50
-  },
-  zIndex: {
-    type: Number,
-    default: 9999
-  }
+const props = withDefaults(defineProps<IMarkConfig>(), {
+  fontSize: 20,
+  color: 'rgba(0, 0, 0, .2)',
+  text: 'WaterMark',
+  gap: 50,
+  zIndex: 9999
 })
 
-const parentRef = ref<Element|null>(null)
 console.log('props::::::::::::::::', props)
+
+
+
+const parentRef = ref<Element|null>(null)
 
 const { base64, size } = useCreateMarkBg(props)
 

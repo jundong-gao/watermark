@@ -1,26 +1,5 @@
 
-export interface IMarkConfig {
-  /**
-   * 字体颜色
-   * @default #ccc
-   */
-  color?: string,
-  /**
-   * 字体大小
-   * @default 14
-   */
-  fontSize?: number,
-  /**
-   * 文本内容
-   * @default watermark
-   */
-  text?: string,
-  /**
-   * 间距
-   * @default 50
-   */
-  gap?: number | Array<number>,
-}
+import { IMarkConfig } from '@/types/types'
 
 export interface IReturndMark {
   base64: string,

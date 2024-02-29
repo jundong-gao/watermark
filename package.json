@@ -1,9 +1,10 @@
 {
   "name": "gao-watermark",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
-  "main": "/dist/gao-watermark.es.js",
+  "main": "dist/gao-watermark.es.js",
+  "types": "src/types/types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jundong-gao/watermark.git"
