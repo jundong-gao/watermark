@@ -1,6 +1,5 @@
-
 export interface IMarkConfig {
-  [key: string]: string | number;
+  [key: string]: any;
   text?: string,
   fontSize?: number,
   color?: string,
@@ -9,7 +8,5 @@ export interface IMarkConfig {
 }
 
 declare module 'gao-watermark' {
-  export interface IMarkConfig extends IMarkConfig {
-    
-  }
+  export const waterMark: any
 }

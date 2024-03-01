@@ -6,7 +6,7 @@
 
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted,  } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useCreateMarkBg } from '../hooks/useCreateMarkbg'
 import { IMarkConfig } from '../types/types'
 
@@ -19,9 +19,6 @@ const props = withDefaults(defineProps<IMarkConfig>(), {
   gap: 50,
   zIndex: 9999
 })
-
-console.log('props::::::::::::::::', props)
-
 
 
 const parentRef = ref<Element|null>(null)

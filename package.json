@@ -1,10 +1,10 @@
 {
   "name": "gao-watermark",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/gao-watermark.es.js",
-  "types": "src/types/types.d.ts",
+  "typings": "src/types/types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jundong-gao/watermark.git"
@@ -16,7 +16,7 @@
   ],
   "files": [
     "dist/*",
-    "src/**/*.vue"
+    "src/**/*.d.ts"
   ],
   "scripts": {
     "dev": "vite",
@@ -24,6 +24,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gao-watermark": "^0.0.6",
     "path": "^0.12.7",
     "vue": "^3.3.11"
   },

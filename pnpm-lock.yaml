@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  gao-watermark:
+    specifier: ^0.0.6
+    version: 0.0.6(typescript@5.3.3)
   path:
     specifier: ^0.12.7
     version: 0.12.7
@@ -613,6 +616,15 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /gao-watermark@0.0.6(typescript@5.3.3):
+    resolution: {integrity: sha512-OORcgSg2Xd/MARuvMRoB0ZJIoCCWAa3bbn5EkN+MEaFBXO8NI+iUAsNKHFRne9DUZnYOe8z+dsjPFsBaDoPpww==}
+    dependencies:
+      path: 0.12.7
+      vue: 3.4.21(typescript@5.3.3)
+    transitivePeerDependencies:
+      - typescript
+    dev: false
 
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
