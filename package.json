@@ -12,7 +12,9 @@
   "license": "MIT",
   "keywords": [
     "watermark",
-    "水印"
+    "水印",
+    "vue3",
+    "防篡改"
   ],
   "files": [
     "dist/*",
