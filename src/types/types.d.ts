@@ -1,4 +1,4 @@
-export interface IMarkConfig {
+export declare interface IMarkConfig {
   [key: string]: any;
   text?: string,
   fontSize?: number,
@@ -7,6 +7,13 @@ export interface IMarkConfig {
   zIndex?: number,
 }
 
-declare module 'gao-watermark' {
-  export const waterMark: any
+
+export declare module 'gao-watermark' {
+  export const waterMark: any;
+  export type IMarkConfig = IMarkConfig
 }
+
+
+
+
+
