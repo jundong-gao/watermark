@@ -6,6 +6,7 @@ npm install gao-watermark --save-dev
 ### 使用
 #### vue3使用
 ```html
+<!-- 单文件使用 -->
 import { waterMark, IMarkConfig } from 'gao-watermark'
 <waterMark color='red' text="测试水印"/>
 ```
