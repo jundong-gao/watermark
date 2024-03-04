@@ -3,9 +3,14 @@ const install = (app: any) => {
   app.component('WaterMark', waterMark);
 }
 
+let component = {
+  waterMark,
+  install
+}
+
 export {
   waterMark,
   install,
 }
 
-export default waterMark
+export default component

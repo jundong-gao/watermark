@@ -8,3 +8,8 @@ export interface IMarkConfig {
 }
 
 export const waterMark: any;
+export const install: () => void;
+export default {
+  install,
+  waterMark
+}
