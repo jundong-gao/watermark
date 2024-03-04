@@ -9,6 +9,16 @@ npm install gao-watermark --save-dev
 <!-- 单文件使用 -->
 import { waterMark, IMarkConfig } from 'gao-watermark'
 <waterMark color='red' text="测试水印"/>
+
+<!-- 全局注册 -->
+import waterMark from 'gao-watermark'
+let app = createApp(App)
+app.use(waterMark)
+<!-- 使用 -->
+<water-mark></water-mark>
+<!-- 或者 -->
+<WaterMark></WaterMark>
+
 ```
 #### vue2使用
 > 目前不支持vue2版本
