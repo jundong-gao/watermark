@@ -1,17 +1,23 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import a from './entry'
-
-console.log('a::::::::::::::::', a)
+import watermark, { GaoWatermark, IMarkConfig } from './entry'
 
 let app = createApp(App)
 
 
-app.use(a, {
+console.log('GaoWatermark::::::::::::::::', GaoWatermark)
+
+let config:IMarkConfig = {
+  text: '测试',
+}
+
+console.log('config::::::::::::::::', config)
+
+app.use(watermark, {
   color: 'deepskyblue',
   gap: 50,
-  fontSize: 10,
-  text: '水印'
+  fontSize: 14,
+  text: '测试水印'
 })
 
 app.mount('#app')

@@ -7,8 +7,10 @@ npm install gao-watermark --save-dev
 #### vue3使用
 ```html
 <!-- 单文件使用 -->
-import { waterMark, IMarkConfig } from 'gao-watermark'
-<waterMark color='red' text="测试水印"/>
+import { GaoWatermark, IMarkConfig } from 'gao-watermark'
+<GaoWatermark color='red' text="测试水印"/>
+
+<!-- ================================================================== -->
 
 <!-- 全局注册 -->
 import waterMark from 'gao-watermark'
@@ -21,9 +23,7 @@ app.use(waterMark, {
   zIndex: 1000
 })
 <!-- 使用 -->
-<water-mark></water-mark>
-<!-- 或者 -->
-<WaterMark></WaterMark>
+<GaoWatermark></GaoWatermark>
 
 ```
 #### vue2使用

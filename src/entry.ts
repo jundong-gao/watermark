@@ -16,6 +16,7 @@ let component = {
 export {
   GaoWatermark,
   install,
+  type IMarkConfig
 }
 
 export default component
