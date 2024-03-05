@@ -1,18 +1,20 @@
 import { IMarkConfig } from "gao-watermark";
-import waterMark from "./components/water-mark.vue";
-const install = (app: any, options: IMarkConfig) => {
-  console.log('接收到的默认参数为::::::::::::::::', options)
-  app.component('WaterMark', waterMark);
+import GaoWatermark from "./components/water-mark.vue";
+import { createApp } from "vue";
+const install = (app: ReturnType<typeof createApp>, options: IMarkConfig) => {
+  // 接收默认参数
+  app.config.globalProperties._watermark_config = options
+  app.component('GaoWatermark', GaoWatermark);
 }
 
 let component = {
-  waterMark,
+  GaoWatermark,
   install
 }
 
 
 export {
-  waterMark,
+  GaoWatermark,
   install,
 }
 

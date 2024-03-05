@@ -7,9 +7,9 @@ export interface IMarkConfig {
   zIndex?: number,
 }
 
-export const waterMark: any;
+export const gaoWatermark: any;
 export const install: () => void;
 export default {
   install,
-  waterMark
+  gaoWatermark
 }
