@@ -5,11 +5,15 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
 
+
+
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
-    }
+    },
   },
+  
   build: {
     minify: 'terser',
     terserOptions: {
@@ -19,6 +23,7 @@ export default defineConfig({
       }
     },
     lib: {
+      formats: ['es', 'umd'],
       entry: path.resolve(__dirname, 'src/entry.ts'),
       name: 'gao-watermark',
       fileName: (format) => `gao-watermark.${format}.js`
