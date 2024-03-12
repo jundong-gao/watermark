@@ -1,10 +1,9 @@
 import { App } from 'vue';
-import GaoWatermark from '../components/water-mark.vue'
 
 
 declare module 'vue' {
   export interface GlobalComponents {
-    GaoWatermark: typeof GaoWatermark
+    GaoWatermark: typeof import('gao-watermark')['GaoWatermark']
   }
 }
 
@@ -18,6 +17,7 @@ export interface IMarkConfig {
 }
 
 export const install: (app: App, option?: IMarkConfig) => void;
+export const GaoWatermark: typeof import('gao-watermark')['GaoWatermark']
 
 export default {
   install

@@ -1,7 +1,7 @@
 {
   "name": "gao-watermark",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "main": "dist/gao-watermark.es.js",
   "typings": "src/types/types.d.ts",

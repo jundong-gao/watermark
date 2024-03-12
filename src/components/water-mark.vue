@@ -22,12 +22,12 @@ const defaultConf: IMarkConfig = {
 // 组件属性传值
 const props = withDefaults(defineProps<IMarkConfig>(), {})
 // 用户注册组件，默认配置
-let userParams = instance.appContext.config.globalProperties._watermark_config
+let userParams = instance.appContext.config.globalProperties._watermark_config || {}
 
 // 获取水印配置
 let watermarkConfig = {...defaultConf}
 Object.keys(props).forEach(key => {
-  watermarkConfig[key] = props[key] || userParams[key] || defaultConf[key]
+  watermarkConfig[key] = props[key] || userParams?.[key] || defaultConf[key]
 })
 
 
