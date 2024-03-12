@@ -8,15 +8,12 @@ const install = (app: ReturnType<typeof createApp>, options: IMarkConfig) => {
 }
 
 let component = {
-  GaoWatermark,
   install
 }
 
 
 export {
   GaoWatermark,
-  install,
-  type IMarkConfig
+  type IMarkConfig,
+  component as default
 }
-
-export default component

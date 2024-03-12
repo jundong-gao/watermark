@@ -1,3 +1,13 @@
+import { App } from 'vue';
+import GaoWatermark from '../components/water-mark.vue'
+
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    GaoWatermark: typeof GaoWatermark
+  }
+}
+
 export interface IMarkConfig {
   [key: string]: any;
   text?: string,
@@ -7,9 +17,8 @@ export interface IMarkConfig {
   zIndex?: number,
 }
 
-export const gaoWatermark: any;
-export const install: () => void;
+export const install: (app: App, option?: IMarkConfig) => void;
+
 export default {
-  install,
-  gaoWatermark
+  install
 }
