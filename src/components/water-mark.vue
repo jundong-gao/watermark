@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, getCurrentInstance} from 'vue'
 import { useCreateMarkBg } from '../hooks/useCreateMarkbg'
-import { IMarkConfig } from '../types/types'
+import { IMarkConfig } from '@/type'
 
 let instance = getCurrentInstance()!
 
@@ -26,7 +26,7 @@ let userParams = instance.appContext.config.globalProperties._watermark_config |
 
 // 获取水印配置
 let watermarkConfig = {...defaultConf}
-Object.keys(props).forEach(key => {
+Object.keys(props).forEach((key) => {
   watermarkConfig[key] = props[key] || userParams?.[key] || defaultConf[key]
 })
 

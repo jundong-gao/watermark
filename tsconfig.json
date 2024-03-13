@@ -6,14 +6,16 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
 
+
     "types": ["node"],
     "typeRoots": ["src/types", "node_modules/@types"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
+    "outDir": "./lib",
     "declaration": true,
-    "declarationDir": "./dist",
+    "declarationDir": "./lib",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -29,6 +31,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
 
-import { IMarkConfig } from '@/types/types'
+import { IMarkConfig } from '@/type'
 
 export interface IReturndMark {
   base64: string,
