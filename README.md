@@ -13,7 +13,7 @@ import { GaoWatermark, IMarkConfig } from 'gao-watermark'
 <!-- ================================================================== -->
 
 <!-- 全局注册 -->
-import waterMark from 'gao-watermark'
+import waterMark, {type IMarkConfig} from 'gao-watermark'
 let app = createApp(App)
 app.use(waterMark, {
   fontSize: 14,
@@ -21,7 +21,7 @@ app.use(waterMark, {
   text: 'watermark',
   gap: 50,
   zIndex: 1000
-})
+}as IMarkConfig)
 <!-- 使用 -->
 <GaoWatermark></GaoWatermark>
 
