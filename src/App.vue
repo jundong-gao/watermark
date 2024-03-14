@@ -7,14 +7,15 @@ app
     </gao-watermark>
 
 
-    <gao-watermark>
+    <!-- <gao-watermark>
       <div style="height: 500px; border: 1px solid #ccc;">默认配置</div>
-    </gao-watermark>
+    </gao-watermark> -->
   </div>
 </template>
 
 
 <script setup lang="ts">
+import icon from './assets/te.png'
 
 import { ref } from 'vue';
 import { type IMarkConfig } from './type'
@@ -22,8 +23,10 @@ let config = ref<IMarkConfig>({
   color: '#000',
   fontSize: 20,
   text: ['第一行', '第二行内容', '第三阿斯达是大多行', '123爱仕达多阿斯达书大撒多1阿斯达书大阿斯达23'],
-  rotate: 45,
-  gap: 0
+  rotate: 20,
+  gap: 20,
+  // image: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*lkAoRbywo0oAAAAAAAAAAAAADrJ8AQ/original',
+  image: icon
 })
 
 </script>

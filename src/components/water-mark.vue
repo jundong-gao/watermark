@@ -34,11 +34,11 @@ Object.keys(props).forEach((key) => {
 
 
 
-console.log('config::::::::::::::::', watermarkConfig)
-
 const parentRef = ref<Element|null>(null)
 
-const { base64, size } = useCreateMarkBg(watermarkConfig)
+// const { base64, size } = 
+let base64 = ''
+let size = {width: 0, height: 0}
 
 
 let div:HTMLElement|null = null // 水印图层
@@ -69,7 +69,11 @@ let ob = new MutationObserver((entries) => {
   }
 })
 
-onMounted(() => {
+onMounted(async () => {
+  let info = await useCreateMarkBg(watermarkConfig)
+  base64 = info.base64
+  size = info.size
+
   createWaterMark()
   ob.observe(parentRef.value!, {
     attributes: true,

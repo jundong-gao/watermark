@@ -20,13 +20,36 @@ const defaultConfig: IMarkConfig = {
   gap: 50
 }
 
-export const useCreateMarkBg = (config: IMarkConfig | Record<string, any>): IReturndMark => {
+export const useCreateMarkBg = async (config: IMarkConfig | Record<string, any>): Promise<IReturndMark> => {
 
   let _config = { ...defaultConfig, ...config }
 
   let canvas:HTMLCanvasElement = document.createElement('canvas');
   let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
+  await renderText(canvas, ctx, _config)
+  
+  // if(!_config.image) {
+  //  await renderText(canvas, ctx, _config)
+  // }else{
+  //   await renderImage(canvas, ctx, _config)
+  // }
+
+  console.log('canvas.....::::::::::::::::', canvas.toDataURL())
+  // canvas.toDataURL()
+
+
+  return Promise.resolve({
+    base64: canvas.toDataURL(),
+    size: {
+      width: canvas.width,
+      height: canvas.height
+    }
+  })
+}
+
+
+function renderText(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _config: IMarkConfig): Promise<any> {
   let fontSize = _config.fontSize! * window.devicePixelRatio;
 
   ctx.font = `${fontSize}px Arial`
@@ -70,14 +93,41 @@ export const useCreateMarkBg = (config: IMarkConfig | Record<string, any>): IRet
   })
   // ctx.fillText(_config.text!, 0, 0)
 
-  console.log('base64::::::::::::::::', canvas.toDataURL('image/png'))
+
+  return Promise.resolve()
+}
+
+function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _config: IMarkConfig): Promise<any> {
+  return new Promise((resolve) => {
+    // 创建图片
+    const image = new Image()
+    image.src = _config.image!
+    // 处理图片跨域
+    image.setAttribute('crossOrigin', 'anonymous')
+    image.onload = () => {
+      console.log('image::::::::::::::::', image.width, image.height)
 
 
-  return {
-    base64: canvas.toDataURL('image/png'),
-    size: {
-      width: canvasWidth,
-      height: canvasHeight
+      
+      // 最大宽高
+      const maxWidth = Math.cos(_config.rotate!) * image.width * 1.5
+      // 最大高度
+      const maxHeight = Math.sin(_config.rotate!) * image.width * 1.5 || image.height
+      
+      console.log('maxWidth::::::::::::::::', Math.abs(maxWidth), Math.abs(maxHeight))
+
+
+      canvas.width = Math.abs(maxWidth)
+      canvas.height = Math.abs(maxHeight)
+      ctx.translate(canvas.width / 2, canvas.height / 2)
+      ctx.rotate(Math.PI / 180 * _config.rotate!)
+      ctx.drawImage(image, -image.width/2, -image.height/2, image.width, image.height)
+      resolve(null)
     }
-  }
+    image.onerror = (err) => {
+      console.log('err::::::::::::::::', err)
+      throw Error('图片加载失败')
+    }
+  })
+  
 }
