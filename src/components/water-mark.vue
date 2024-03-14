@@ -17,6 +17,7 @@ const defaultConf: IMarkConfig = {
   color: 'rgba(0, 0, 0, .2)',
   text: 'WaterMark',
   gap: 50,
+  rotate: 45,
   zIndex: 9999
 }
 // 组件属性传值
@@ -27,6 +28,7 @@ let userParams = instance.appContext.config.globalProperties._watermark_config |
 // 获取水印配置
 let watermarkConfig = {...defaultConf}
 Object.keys(props).forEach((key) => {
+  if(props[key] !== undefined) return watermarkConfig[key] = props[key]
   watermarkConfig[key] = props[key] || userParams?.[key] || defaultConf[key]
 })
 

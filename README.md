@@ -20,7 +20,8 @@ app.use(waterMark, {
   color: '#ccc',
   text: 'watermark',
   gap: 50,
-  zIndex: 1000
+  zIndex: 1000,
+  rotate: 45
 }as IMarkConfig)
 <!-- 使用 -->
 <GaoWatermark></GaoWatermark>
@@ -29,13 +30,14 @@ app.use(waterMark, {
 #### vue2使用
 > 目前不支持vue2版本
 ### 参数配置
-| 属性 | 类型 | 默认值 | 描述 | 
-|------|------|------|------|
-| fontSize | number | 14 | 字体大小 |
-| color | string | #ccc | 字体颜色 |
-| text | string | watermark | 水印内容文字 |
-| gap | number | 50 | 间距 |
-| zIndex | number | 9999 | 层级 |
+| 属性     | 类型   | 默认值    | 描述         |
+| -------- | ------ | --------- | ------------ |
+| fontSize | number | 14        | 字体大小     |
+| color    | string | #ccc      | 字体颜色     |
+| text     | string | watermark | 水印内容文字 |
+| gap      | number | 50        | 间距         |
+| zIndex   | number | 9999      | 层级         |
+| rotate   | number | 45        | 旋转角度     |
 
 
 

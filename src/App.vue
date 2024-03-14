@@ -2,7 +2,7 @@
 app
 
 <div id="app">
-    <gao-watermark color="red" text="https://gaojundong.com/blog">
+    <gao-watermark v-bind="config">
       <div style="height: 500px; border: 1px solid #ccc;">通过标签属性修改</div>
     </gao-watermark>
 
@@ -15,6 +15,16 @@ app
 
 
 <script setup lang="ts">
+
+import { ref } from 'vue';
+import { type IMarkConfig } from './type'
+let config = ref<IMarkConfig>({
+  color: '#000',
+  fontSize: 20,
+  text: ['第一行', '第二行内容', '第三阿斯达是大多行', '123爱仕达多阿斯达书大撒多1阿斯达书大阿斯达23'],
+  rotate: 45,
+  gap: 0
+})
 
 </script>
 
