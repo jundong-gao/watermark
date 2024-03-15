@@ -97,7 +97,7 @@ function renderText(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _c
   return Promise.resolve()
 }
 
-function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _config: IMarkConfig): Promise<any> {
+export function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _config: IMarkConfig): Promise<any> {
   return new Promise((resolve) => {
     // 创建图片
     const image = new Image()
