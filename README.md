@@ -1,5 +1,43 @@
-# Vue 3 + TypeScript + Vite
+### 安装
+```bash
+npm install gao-watermark --save-dev
+```
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 使用
+#### vue3使用
+```html
+<!-- 单文件使用 -->
+import { watermark } from 'gao-watermark'
+<watermark color='red' text="测试水印"/>
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+<!-- ================================================================== -->
+
+<!-- 全局注册 -->
+import waterMark from 'gao-watermark'
+let app = createApp(App)
+app.use(waterMark, {
+  fontSize: 14,
+  color: '#ccc',
+  text: 'watermark',
+  gap: 50,
+  zIndex: 1000,
+  rotate: 45
+})
+<!-- 使用 -->
+<GaoWatermark></GaoWatermark>
+
+```
+#### vue2使用
+> 目前不支持vue2版本
+### 参数配置
+| 属性     | 类型   | 默认值    | 描述         |
+| -------- | ------ | --------- | ------------ |
+| fontSize | number | 14        | 字体大小     |
+| color    | string | #ccc      | 字体颜色     |
+| text     | string | watermark | 水印内容文字 |
+| gap      | number | 50        | 间距         |
+| zIndex   | number | 9999      | 层级         |
+| rotate   | number | 45        | 旋转角度     |
+
+
+

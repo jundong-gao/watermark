@@ -17,6 +17,7 @@ export default defineConfig({
     dts({
       include: ['src/**/*.ts', 'src/**/*.d.ts', 'src/types/**/*.d.ts'],
       outDir: 'lib',
+      copyDtsFiles: true,
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace(/src\//, ''),
         content

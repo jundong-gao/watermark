@@ -1,15 +1,14 @@
 import { createApp } from "vue";
-import GaoWatermark from "./components/water-mark.vue";
+import watermark from "./components/water-mark.vue";
 import type { IGaoMarkConfig } from './type'
 
 const install = (app: ReturnType<typeof createApp>, options: IGaoMarkConfig) => {
   app.config.globalProperties._watermark_config = options || {}
-  app.component('GaoWatermark', GaoWatermark);
+  app.component('GaoWatermark', watermark);
 }
 
 
 export {
-  GaoWatermark,
-  type IGaoMarkConfig,
+  watermark,
   install as default
 }
