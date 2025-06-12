@@ -3,7 +3,7 @@ import type { IGaoMarkConfig } from './type';
 
 
 declare module 'gao-watermark' {
-  const install: (app: App) => void
+  const install: (app: App, options?:IGaoMarkConfig) => void
   const GaoWatermark: DefineComponent<IGaoMarkConfig>
   export { 
     install as default,

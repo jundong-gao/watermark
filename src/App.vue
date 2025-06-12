@@ -24,7 +24,7 @@
     fontSize: 20,
     text: ['第一行', '第二行内容', '第三阿斯达是大多行', '123爱仕达多阿斯达书大撒多1阿斯达书大阿斯达23'],
     rotate: 20,
-    gap: 20,
+    gap: [500, 200],
     // image: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*lkAoRbywo0oAAAAAAAAAAAAADrJ8AQ/original',
     image: icon
   })

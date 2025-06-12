@@ -29,13 +29,13 @@ export const useCreateMarkBg = async (config: IGaoMarkConfig | Record<string, an
 
   await renderText(canvas, ctx, _config)
   
-  // if(!_config.image) {
-  //  await renderText(canvas, ctx, _config)
-  // }else{
-  //   await renderImage(canvas, ctx, _config)
-  // }
+  if(!_config.image) {
+   await renderText(canvas, ctx, _config)
+  }else{
+    await renderImage(canvas, ctx, _config)
+  }
 
-  console.log('canvas.....::::::::::::::::', canvas.toDataURL())
+  // console.log('canvas.....::::::::::::::::', canvas.toDataURL())
   // canvas.toDataURL()
 
 
@@ -86,7 +86,7 @@ function renderText(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, _c
   ctx.textBaseline = 'middle'
   ctx.textAlign = 'center'
   // 绘制文字数组
-  console.log('text_arr::::::::::::::::', text_arr)
+  // console.log('text_arr::::::::::::::::', text_arr)
   text_arr.forEach((item, index) => {
     let y = index - text_arr.length / 2 + 0.5 // 让多行文字居中
     ctx.fillText(item, 0, y * fontSize)
@@ -105,7 +105,7 @@ export function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingConte
     // 处理图片跨域
     image.setAttribute('crossOrigin', 'anonymous')
     image.onload = () => {
-      console.log('image::::::::::::::::', image.width, image.height)
+      // console.log('image::::::::::::::::', image.width, image.height)
 
 
       
@@ -114,7 +114,7 @@ export function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingConte
       // 最大高度
       const maxHeight = Math.sin(_config.rotate!) * image.width * 1.5 || image.height
       
-      console.log('maxWidth::::::::::::::::', Math.abs(maxWidth), Math.abs(maxHeight))
+      // console.log('maxWidth::::::::::::::::', Math.abs(maxWidth), Math.abs(maxHeight))
 
 
       canvas.width = Math.abs(maxWidth)
@@ -125,7 +125,7 @@ export function renderImage(canvas: HTMLCanvasElement, ctx: CanvasRenderingConte
       resolve(null)
     }
     image.onerror = (err) => {
-      console.log('err::::::::::::::::', err)
+      console.warn(err)
       throw Error('图片加载失败')
     }
   })
