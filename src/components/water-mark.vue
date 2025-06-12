@@ -25,11 +25,24 @@ const props = withDefaults(defineProps<IGaoMarkConfig>(), {})
 // 用户注册组件，默认配置
 let userParams = instance.appContext.config.globalProperties._watermark_config || {}
 
+
 // 获取水印配置
-let watermarkConfig = {...defaultConf}
+let watermarkConfig:IGaoMarkConfig = {...defaultConf}
+
+type WatermarkConfigKey = keyof IGaoMarkConfig
+type WatermarkConfigValue = IGaoMarkConfig[WatermarkConfigKey]
+
 Object.keys(props).forEach((key) => {
-  if(props[key] !== undefined) return watermarkConfig[key] = props[key]
-  watermarkConfig[key] = props[key] || userParams?.[key] || defaultConf[key]
+  const typedKey = key as WatermarkConfigKey
+  const propValue = props[typedKey]
+  const userValue = userParams?.[typedKey]
+  const defaultValue = defaultConf[typedKey]
+  
+  if (propValue !== undefined) {
+    (watermarkConfig[typedKey] as WatermarkConfigValue) = propValue
+  } else {
+    (watermarkConfig[typedKey] as WatermarkConfigValue) = (userValue ?? defaultValue) as WatermarkConfigValue
+  }
 })
 
 

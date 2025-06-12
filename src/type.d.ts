@@ -5,7 +5,6 @@ export interface IGaoMarkConfig {
   gap?: number | Array<number>,
   zIndex?: number,
   rotate?: number,
-  image?: string,
-  [key: string|number|symbol]: any
+  image?: string
 }
 

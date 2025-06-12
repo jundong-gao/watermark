@@ -1,10 +1,16 @@
-import { App, Component, Directive } from 'vue';
+import { App, DefineComponent } from 'vue';
 import { IGaoMarkConfig } from './type';
-declare module 'gao-scroll-animate' {
+declare module 'gao-watermark' {
   const install: (app: App) => void
-  const watermark: Component<IGaoMarkConfig>
+  const GaoWatermark: DefineComponent<IGaoMarkConfig>
   export { 
     install as default,
-    watermark
+    GaoWatermark
+  }
+}
+
+declare module '@vue/runtime-core' {
+  interface GlobalComponents {
+    GaoWatermark: DefineComponent<IGaoMarkConfig>
   }
 }
